@@ -1,20 +1,20 @@
-# Usa una imagen base de Node.js
+# Use a Node.js base image
 FROM node:18-alpine
 
-# Establece el directorio de trabajo
+# Set the working directory
 WORKDIR /usr/src/app
 
-# Copia el package.json y package-lock.json
+# Copy the package.json and package-lock.json
 COPY package*.json ./
 
-# Instala las dependencias
+# Install the dependencies
 RUN npm install
 
-# Copia el resto del código de la aplicación
+# Copy the rest of the application code
 COPY . .
 
-# Expone el puerto que usa la aplicación
+# Expose the port the application uses
 EXPOSE 8080
 
-# Comando para correr la aplicación
+# Command to run the application
 CMD [ "npm", "start" ]
